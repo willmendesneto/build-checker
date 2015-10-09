@@ -1,0 +1,17 @@
+{
+  "name": "arduino-build-checker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js -e js,jade",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "johnny-five": "^0.8.98",
+    "nodemon": "^1.7.1",
+    "request": "^2.64.0"
+  }
+}
