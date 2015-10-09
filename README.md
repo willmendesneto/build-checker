@@ -21,7 +21,7 @@ Application using Arduino + Johnny Five + NodeJS for to monitor build/deploy sta
 ```bash
 $ git clone <project> && cd $_
 $ npm install
-$ node index.js <example> # or npm start
+$ node index.js # or npm start
 ```
 
 You will need of:
