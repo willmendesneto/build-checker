@@ -2,6 +2,7 @@
 
 > Visual alert for your build status
 
+![Build checker: Visual alert for your build status](build-checker.png)
 
 ## INTRODUCTION
 
