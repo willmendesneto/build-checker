@@ -2,7 +2,6 @@ var request = require('request');
 var five = require('johnny-five');
 var board = new five.Board();
 
-
 var CONFIG = {
   LED: {
     SUCCESS: 12,
@@ -12,15 +11,30 @@ var CONFIG = {
   INTERVAL: 500
 };
 
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
+
 board.on('ready', function() {
 
   var ledSuccess = new five.Led(CONFIG.LED.SUCCESS);
   var ledError = new five.Led(CONFIG.LED.ERROR);
 
-  setInterval(function(){
+  debounce(function(){
     request(CONFIG.CI_CCTRACKER_URL, function(error, response, body) {
       if (error) {
-        console.log('Shit happens =(');
+        console.log('Somethink is wrong with your CI =(');
         return;
       }
 
@@ -31,7 +45,7 @@ board.on('ready', function() {
         ledError.off();
 
       } else {
-        console.log('Shit happens =(. Your CI is broken! Fix it!!!!');
+        console.log('Somethink is wrong with your CI =(. Fix it!!!!');
 
         ledSuccess.off();
         ledError.on();
