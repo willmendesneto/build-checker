@@ -13,5 +13,10 @@
     "johnny-five": "^0.8.98",
     "nodemon": "^1.7.1",
     "request": "^2.64.0"
+  },
+  "devDependencies": {
+    "bindings": "^1.2.1",
+    "firmata": "^0.11.3",
+    "serialport": "^3.0.1"
   }
 }

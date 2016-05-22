@@ -8,30 +8,17 @@ var CONFIG = {
     ERROR: 10
   },
   CI_CCTRACKER_URL: 'https://snap-ci.com/willmendesneto/generator-reactor/branch/master/cctray.xml',
-  INTERVAL: 500
-};
-
-function debounce(func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		var later = function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
+  INTERVAL: 1000
 };
 
 board.on('ready', function() {
 
   var ledSuccess = new five.Led(CONFIG.LED.SUCCESS);
   var ledError = new five.Led(CONFIG.LED.ERROR);
+  var ciTrackerURL = CONFIG.CI_CCTRACKER_URL;
+  var counter = 0;
+  setInterval(function(){
 
-  debounce(function(){
     request(CONFIG.CI_CCTRACKER_URL, function(error, response, body) {
       if (error) {
         console.log('Somethink is wrong with your CI =(');
