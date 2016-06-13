@@ -1,15 +1,10 @@
+var CONFIG = require('./configuration');
 var request = require('request');
 var five = require('johnny-five');
 var board = new five.Board();
 
-var CONFIG = {
-  LED: {
-    SUCCESS: 12,
-    ERROR: 10
-  },
-  CI_CCTRACKER_URL: 'https://snap-ci.com/willmendesneto/generator-reactor/branch/master/cctray.xml',
-  INTERVAL: 1000
-};
+var SUCCESS_URL = 'https://snap-ci.com/willmendesneto/generator-reactor/branch/master/cctray.xml';
+var ERROR_URL = 'https://snap-ci.com/willmendesneto/keepr/branch/master/cctray.xml';
 
 board.on('ready', function() {
 
@@ -18,6 +13,17 @@ board.on('ready', function() {
   var ciTrackerURL = CONFIG.CI_CCTRACKER_URL;
   var counter = 0;
   setInterval(function(){
+
+    if (counter === 3) {
+      counter = 0;
+      if (CONFIG.CI_CCTRACKER_URL === SUCCESS_URL) {
+        CONFIG.CI_CCTRACKER_URL = ERROR_URL;
+      } else {
+        CONFIG.CI_CCTRACKER_URL = SUCCESS_URL;
+      }
+    } else {
+      counter += 1;
+    }
 
     request(CONFIG.CI_CCTRACKER_URL, function(error, response, body) {
       if (error) {
