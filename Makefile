@@ -13,7 +13,7 @@ lint:
 
 # All the tests
 test: lint
-	@./node_modules/.bin/mocha
+	@./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha
 
 #
 # Phony targets
