@@ -8,7 +8,7 @@ describe('Configuration', function() {
       CONFIG.LED.should.have.property('SUCCESS').which.is.a.Number()
     });
 
-    it('should have the success port configured', function(){
+    it('should have the error port configured', function(){
       CONFIG.LED.should.have.property('ERROR').which.is.a.Number()
     });
   });
