@@ -1,4 +1,3 @@
-require('should');
 var CONFIG = require('../src/configuration');
 
 describe('Configuration', function() {
