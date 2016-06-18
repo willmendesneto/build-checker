@@ -2,6 +2,8 @@
 
 > Visual alert for your build status
 
+[![Build Status](https://travis-ci.org/willmendesneto/build-checker.png?branch=master)](https://travis-ci.org/willmendesneto/build-checker)
+
 ![Build checker: Visual alert for your build status](build-checker.png)
 
 ## INTRODUCTION
