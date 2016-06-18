@@ -9,3 +9,4 @@ before_script:
 
 after_script:
   - 'make test'
+  - 'cat ./coverage/lcov.info | ./node_modules/.bin/coveralls && rm -rf ./coverage'

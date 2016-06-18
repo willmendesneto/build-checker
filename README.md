@@ -3,6 +3,7 @@
 > Visual alert for your build status
 
 [![Build Status](https://travis-ci.org/willmendesneto/build-checker.png?branch=master)](https://travis-ci.org/willmendesneto/build-checker)
+[![Coverage Status](https://coveralls.io/repos/willmendesneto/build-checker/badge.svg?branch=master)](https://coveralls.io/r/willmendesneto/build-checker?branch=master)
 
 ![Build checker: Visual alert for your build status](build-checker.png)
 
