@@ -28,5 +28,22 @@ describe('BuildChecker', function() {
     it('should remove interval', function(){
       global.clearInterval.calledOnce.should.be.true;
     });
-  })
+  });
+
+  describe('#startPolling', function(){
+    beforeEach(function(){
+      sinon.spy(global, 'setInterval');
+      buildChecker.startPolling();
+    });
+
+    afterEach(function(){
+      global.setInterval.restore();
+    });
+
+    it('should creates polling', function(){
+      global.setInterval.calledOnce.should.be.true;
+    });
+
+  });
+
 });
