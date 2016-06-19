@@ -13,10 +13,6 @@ function BuildChecker() {
   this.ledError = new five.Led(CONFIG.LED.ERROR);
 };
 
-BuildChecker.prototype.init = function() {
-  return this;
-};
-
 BuildChecker.prototype.stopPolling = function() {
   clearInterval(intervalId);
 };
