@@ -22,6 +22,7 @@
     "firmata": "^0.11.3",
     "istanbul": "^0.4.3",
     "mocha": "^2.5.3",
+    "mock-firmata": "0.0.7",
     "serialport": "^3.0.1",
     "should": "^9.0.0",
     "sinon": "^1.17.4"
