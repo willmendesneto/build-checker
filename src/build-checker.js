@@ -19,6 +19,7 @@ BuildChecker.prototype.stopPolling = function() {
 
 BuildChecker.prototype.startPolling = function() {
   var self = this;
+
   intervalId = setInterval(function(){
 
     if (counter === 3) {
@@ -32,7 +33,7 @@ BuildChecker.prototype.startPolling = function() {
       counter += 1;
     }
 
-    request(CONFIG.CI_CCTRACKER_URL, function(error, response, body) {
+    request.get(CONFIG.CI_CCTRACKER_URL, function(error, response, body) {
       if (error) {
         console.log('Somethink is wrong with your CI =(');
         return;
