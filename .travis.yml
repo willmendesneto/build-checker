@@ -10,3 +10,5 @@ before_script:
 after_script:
   - 'make test'
   - 'cat ./coverage/lcov.info | ./node_modules/.bin/coveralls && rm -rf ./coverage'
+env:
+  - NO_SERIALPORT_INSTALL=1
