@@ -1,4 +1,7 @@
 language: node_js
+os:
+  - linux
+  - osx
 node_js:
   - '5.3.0'
 before_script:
