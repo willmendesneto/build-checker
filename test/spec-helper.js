@@ -1,4 +1,4 @@
-;require('should');
+require('should');
 var mockFirmata = require('mock-firmata');
 var five = require('johnny-five');
 
