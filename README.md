@@ -1,5 +1,7 @@
 # Build Checker
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/willmendesneto/build-checker.svg)](https://greenkeeper.io/)
+
 > Visual alert for your build status
 
 [![Build Status](https://travis-ci.org/willmendesneto/build-checker.png?branch=master)](https://travis-ci.org/willmendesneto/build-checker)
