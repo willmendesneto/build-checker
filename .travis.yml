@@ -4,6 +4,7 @@ os:
   - osx
 node_js:
   - '5.3.0'
+  - '10'
 before_script:
   - 'npm install'
 
