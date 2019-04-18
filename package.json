@@ -25,6 +25,6 @@
     "mock-firmata": "0.1.0",
     "serialport": "^6.0.5",
     "should": "^11.2.1",
-    "sinon": "^2.3.2"
+    "sinon": "^7.3.1"
   }
 }
