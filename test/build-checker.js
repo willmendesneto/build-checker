@@ -9,45 +9,45 @@ var errorResponseCI = fs.readFileSync(__dirname + '/fixtures/error.xml', 'utf8')
 var clock = null;
 
 describe('BuildChecker', function() {
-
-  beforeEach(function(){
+  beforeEach(function() {
     buildChecker = new BuildChecker();
   });
 
-  it('should have the led success port configured', function(){
+  it('should have the led success port configured', function() {
     (buildChecker.ledSuccess instanceof five.Led).should.be.equal(true);
   });
 
-  it('should have the led error port configured', function(){
+  it('should have the led error port configured', function() {
     (buildChecker.ledError instanceof five.Led).should.be.equal(true);
   });
 
-  describe('#stopPolling', function(){
-    beforeEach(function(){
+  describe('#stopPolling', function() {
+    beforeEach(function() {
       sinon.spy(global, 'clearInterval');
       buildChecker.stopPolling();
     });
 
-    it('should remove interval', function(){
+    it('should remove interval', function() {
       global.clearInterval.calledOnce.should.be.true;
     });
   });
 
-  describe('#startPolling', function(){
-    beforeEach(function(){
+  describe('#startPolling', function() {
+    beforeEach(function() {
       sinon.spy(global, 'setInterval');
       buildChecker.startPolling();
     });
 
-    afterEach(function(){
+    afterEach(function() {
       global.setInterval.restore();
+      buildChecker.stopPolling();
     });
 
-    it('should creates polling', function(){
+    it('should creates polling', function() {
       global.setInterval.calledOnce.should.be.true;
     });
 
-    describe('When the CI server send success response', function(){
+    describe('When the CI server send success response', function() {
       beforeEach(function() {
         clock = sinon.useFakeTimers();
         sinon.stub(request, 'get').yields(null, null, successResponseCI);
@@ -57,22 +57,22 @@ describe('BuildChecker', function() {
         clock.tick(CONFIG.INTERVAL);
       });
 
-      afterEach(function(){
+      afterEach(function() {
         request.get.restore();
         clock.restore();
+        buildChecker.stopPolling();
       });
 
-      it('should turn on the success led', function(){
+      it('should turn on the success led', function() {
         buildChecker.ledSuccess.on.calledOnce.should.be.true;
       });
 
-      it('should turn off the error led', function(){
+      it('should turn off the error led', function() {
         buildChecker.ledError.off.calledOnce.should.be.true;
       });
-
     });
 
-    describe('When the CI server send error response', function(){
+    describe('When the CI server send error response', function() {
       beforeEach(function() {
         clock = sinon.useFakeTimers();
         sinon.stub(request, 'get').yields(null, null, errorResponseCI);
@@ -82,21 +82,19 @@ describe('BuildChecker', function() {
         clock.tick(CONFIG.INTERVAL);
       });
 
-      afterEach(function(){
+      afterEach(function() {
         request.get.restore();
         clock.restore();
+        buildChecker.stopPolling();
       });
 
-      it('should turn off the success led', function(){
+      it('should turn off the success led', function() {
         buildChecker.ledSuccess.off.calledOnce.should.be.true;
       });
 
-      it('should turn on the error led', function(){
+      it('should turn on the error led', function() {
         buildChecker.ledError.on.calledOnce.should.be.true;
       });
-
     });
-
   });
-
 });

@@ -10,21 +10,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "johnny-five": "^0.11.1",
+    "johnny-five": "^1.0.0",
     "nodemon": "^1.7.1",
     "request": "^2.64.0"
   },
   "devDependencies": {
-    "bindings": "^1.2.1",
+    "bindings": "^1.5.0",
     "board-io": "^3.0.5",
     "coveralls": "^3.0.3",
     "editorconfig-tools": "^0.1.1",
-    "firmata": "^0.21.0",
-    "istanbul": "^0.4.3",
-    "mocha": "^3.4.2",
-    "mock-firmata": "0.1.0",
-    "serialport": "^6.0.5",
-    "should": "^11.2.1",
-    "sinon": "^7.3.1"
+    "firmata": "^2.0.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^6.1.4",
+    "mock-firmata": "^0.2.0",
+    "serialport": "^7.1.5",
+    "should": "^13.2.3",
+    "sinon": "^7.3.2"
   }
 }

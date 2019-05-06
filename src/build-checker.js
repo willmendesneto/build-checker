@@ -11,7 +11,7 @@ intervalId = null;
 function BuildChecker() {
   this.ledSuccess = new five.Led(CONFIG.LED.SUCCESS);
   this.ledError = new five.Led(CONFIG.LED.ERROR);
-};
+}
 
 BuildChecker.prototype.stopPolling = function() {
   clearInterval(intervalId);
@@ -20,8 +20,7 @@ BuildChecker.prototype.stopPolling = function() {
 BuildChecker.prototype.startPolling = function() {
   var self = this;
 
-  intervalId = setInterval(function(){
-
+  intervalId = setInterval(function() {
     if (counter === 3) {
       counter = 0;
       if (CONFIG.CI_CCTRACKER_URL === SUCCESS_URL) {
@@ -39,21 +38,18 @@ BuildChecker.prototype.startPolling = function() {
         return;
       }
 
-      if(body.indexOf('Success') !== -1) {
+      if (body.indexOf('Success') !== -1) {
         console.log('Your CI is ok!');
         self.ledSuccess.on();
         self.ledError.off();
-
       } else {
         console.log('Somethink is wrong with your CI =(. Fix it!!!!');
 
         self.ledSuccess.off();
         self.ledError.on();
       }
-
     });
   }, CONFIG.INTERVAL);
 };
-
 
 module.exports = BuildChecker;
