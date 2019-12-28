@@ -19,7 +19,7 @@
     "board-io": "^3.0.5",
     "coveralls": "^3.0.3",
     "editorconfig-tools": "^0.1.1",
-    "firmata": "^2.0.0",
+    "firmata": "^2.0.1",
     "istanbul": "^0.4.5",
     "mocha": "^6.1.4",
     "mock-firmata": "^0.2.0",
