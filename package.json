@@ -12,7 +12,7 @@
   "dependencies": {
     "johnny-five": "^1.0.0",
     "nodemon": "^1.7.1",
-    "request": "^2.64.0"
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "bindings": "^1.5.0",
