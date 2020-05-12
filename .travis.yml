@@ -3,12 +3,12 @@ os:
   - linux
   - osx
 node_js:
-  - '10.9.0'
+  - "v12.16.2"
 before_script:
-  - 'npm install'
+  - "npm install"
 
 after_script:
-  - 'make test'
-  - 'cat ./coverage/lcov.info | ./node_modules/.bin/coveralls && rm -rf ./coverage'
+  - "make test"
+  - "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls && rm -rf ./coverage"
 env:
   - NO_SERIALPORT_INSTALL=1
