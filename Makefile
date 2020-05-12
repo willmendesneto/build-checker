@@ -9,7 +9,6 @@ all: test
 lint:
 	@echo "Linting..."
 	@! git --no-pager grep -nE "^\s*?(describe|it).only" -- ./test/*.js
-	@./node_modules/.bin/editorconfig-tools check ./test/** ./src/**
 
 # All the tests
 test: lint
